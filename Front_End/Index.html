@@ -2,29 +2,47 @@
 <html lang="en">
 <head>
     <title>Chioma's Calculator</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #calculator {
+            background-color: #2b2b2b;
+            width: 320px;
+            padding: 20px;
+            border-radius: 16px;
+        }
+    </style>
 </head>
 <body>
-    <div>0</div>
-    <div>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>0</button>
-    </div>
-    
-    <div>
-        <button>+</button>
-        <button>-</button>
-        <button>*</button>
-        <button>/</button>
-        <button>=</button>
-        <button>C</button>
+    <div id = "calculator">
+        <div id = "display"> 0 </div>
+        <div>
+            <button class="digit">1</button>
+            <button class="digit">2</button>
+            <button class="digit">3</button>
+            <button class="digit">4</button>
+            <button class="digit">5</button>
+            <button class="digit">6</button>
+            <button class="digit">7</button>
+            <button class="digit">8</button>
+            <button class="digit">9</button>
+            <button class="digit">0</button>
+        </div>
+
+        <div>
+            <button class="operator">+</button>
+            <button class="operator">-</button>
+            <button class="operator">*</button>
+            <button class="operator">/</button>
+            <button id = "total"> =</button>
+            <button id = "delete" >C</button>
+        </div>
     </div>
 </body>
 </html>
