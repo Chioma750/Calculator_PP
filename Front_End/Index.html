@@ -70,7 +70,7 @@
     <div id = "calculator">
         <div id = "display"> 0 </div>
         <div id = "keys"> 
-            <button class="utility">C</button>
+            <button id = "clear" class="utility">C</button>
             <button class="utility">⌫</button>
             <button class="utility">%</button>
             <button class="operator">/</button>
@@ -95,6 +95,15 @@
     <script>
         let display = document.getElementById("display");
         console.log(display)
+
+        let clearButton = document.getElementById("clear");
+        clearButton.addEventListener("click", function() {
+            console.log("Clear was clicked")
+        });
+
+        document.querySelectorAll(".digit").forEach(function(button) {
+            console.log(button)
+        });
     </script>
 </body>
 </html>
