@@ -26,7 +26,6 @@
             font-size: 34px;
             text-align: right;
             margin-bottom: 16px;
-            grid-column: span 2;
         }
         button {
             border: none;
@@ -53,9 +52,17 @@
             background-color: #e9a23b;
             color: #1a1206;
         }
-        #delete {
+        .utility {
             background-color: #2c2e33;
             color: #8b8f94;
+        }
+        #zero {
+            grid-column: span 2;
+            background-color: #2c2e33;
+        }
+        .decimal {
+            background-color: #2c2e33;
+            color: #edebe6;
         }
     </style>
 </head>
@@ -63,26 +70,25 @@
     <div id = "calculator">
         <div id = "display"> 0 </div>
         <div id = "keys"> 
-                <button id = "delete">C</button>
-                <button class="digit">⌫</button>
-                <button class="digit">%</button>
-                <button class="operator">/</button>
-                <button class="digit">7</button>
-                <button class="digit">8</button>
-                <button class="digit">9</button>
-                <button class="operator">*</button>
-                <button class="digit">4</button>
-                <button class="digit">5</button>
-                <button class="digit">6</button>
-                <button class="operator">-</button>
-                <button class="digit">1</button>
-                <button class="digit">2</button>
-                <button class="digit">3</button>
-                <button class="operator">+</button>
-                <button class="digit">0</button>
-                <button class="digit">.</button>
-                <button id = "total">=</button>
-                
+            <button class="utility">C</button>
+            <button class="utility">⌫</button>
+            <button class="utility">%</button>
+            <button class="operator">/</button>
+            <button class="digit">7</button>
+            <button class="digit">8</button>
+            <button class="digit">9</button>
+            <button class="operator">*</button>
+            <button class="digit">4</button>
+            <button class="digit">5</button>
+            <button class="digit">6</button>
+            <button class="operator">-</button>
+            <button class="digit">1</button>
+            <button class="digit">2</button>
+            <button class="digit">3</button>
+            <button class="operator">+</button>
+            <button id = "zero">0</button>
+            <button class="decimal">.</button>
+            <button id = "total">=</button>    
         </div>
     </div>
 </body>
