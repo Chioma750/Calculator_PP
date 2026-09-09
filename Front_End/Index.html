@@ -68,7 +68,7 @@
 </head>
 <body>
     <div id = "calculator">
-        <div id = "display"> 0 </div>
+        <div id = "display">0</div>
         <div id = "keys"> 
             <button id = "clear" class="utility">C</button>
             <button class="utility">⌫</button>
@@ -86,7 +86,7 @@
             <button class="digit">2</button>
             <button class="digit">3</button>
             <button class="operator">+</button>
-            <button id = "zero">0</button>
+            <button id = "zero" class="digit">0</button>
             <button class="decimal">.</button>
             <button id = "total">=</button>    
         </div>
@@ -96,13 +96,30 @@
         let display = document.getElementById("display");
         console.log(display)
 
+        let firstNumber = null;
+        let currentOperator = null;
+
+        document.querySelectorAll(".operator").forEach(function(button) {
+            button.addEventListener("click", function() {
+                firstNumber = parseFloat(display.textContent);
+                currentOperator = this.textContent
+                display.textContent = "0"
+            })
+        })
+
         let clearButton = document.getElementById("clear");
         clearButton.addEventListener("click", function() {
-            console.log("Clear was clicked")
+            console.log(display.textContent = "0")
         });
 
         document.querySelectorAll(".digit").forEach(function(button) {
-            console.log(button)
+            button.addEventListener("click", function() {
+                if (display.textContent === "0") {
+                    display.textContent = this.textContent
+                } else {
+                    display.textContent += this.textContent
+                }
+            })
         });
     </script>
 </body>
