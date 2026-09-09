@@ -98,29 +98,72 @@
 
         let firstNumber = null;
         let currentOperator = null;
+        let startFresh = true;
+
+        function addition(first_Number, second_Number) {
+            return first_Number + second_Number;
+        }
+        function subtraction(first_Number, second_Number) {
+            return first_Number - second_Number;
+        }
+        function multiplication(first_Number, second_Number) {
+            return first_Number * second_Number;
+        }
+        function division(first_Number, second_Number) {
+            return first_Number / second_Number;
+        }
 
         document.querySelectorAll(".operator").forEach(function(button) {
             button.addEventListener("click", function() {
                 firstNumber = parseFloat(display.textContent);
                 currentOperator = this.textContent
-                display.textContent = "0"
+                display.textContent = currentOperator
+                startFresh = true
             })
         })
 
         let clearButton = document.getElementById("clear");
         clearButton.addEventListener("click", function() {
             console.log(display.textContent = "0")
+            startFresh = true
         });
 
         document.querySelectorAll(".digit").forEach(function(button) {
             button.addEventListener("click", function() {
-                if (display.textContent === "0") {
+                if (startFresh) {
                     display.textContent = this.textContent
+                    startFresh = false
                 } else {
                     display.textContent += this.textContent
                 }
             })
         });
+
+        let totalButton = document.getElementById("total");
+        totalButton.addEventListener("click", function() {
+            let secondNumber = parseFloat(display.textContent);
+            let result;
+
+            if (currentOperator === "+") {
+                result = addition(firstNumber, secondNumber);
+            } else if (currentOperator === "-") {
+                result = subtraction(firstNumber, secondNumber);
+            } else if (currentOperator === "*") {
+                result = multiplication(firstNumber, secondNumber);
+            } else if (currentOperator === "/") {
+                result = division(firstNumber, secondNumber);
+            }
+            display.textContent = result;
+        })
+
+        let decimalButton = document.querySelector(".decimal");
+        decimalButton.addEventListener("click", function() {
+            if (display.textContent.includes(".")) {
+                
+            } else {
+                display.textContent += decimalButton.textContent
+            }
+        })
     </script>
 </body>
 </html>
