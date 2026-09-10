@@ -71,8 +71,8 @@
         <div id = "display">0</div>
         <div id = "keys"> 
             <button id = "clear" class="utility">C</button>
-            <button class="utility">⌫</button>
-            <button class="utility">%</button>
+            <button id = "backspace" class="utility">⌫</button>
+            <button id = "percent" class="utility">%</button>
             <button class="operator">/</button>
             <button class="digit">7</button>
             <button class="digit">8</button>
@@ -110,6 +110,9 @@
             return first_Number * second_Number;
         }
         function division(first_Number, second_Number) {
+            if (second_Number === 0) {
+                return null;
+            }
             return first_Number / second_Number;
         }
 
@@ -151,9 +154,14 @@
             } else if (currentOperator === "*") {
                 result = multiplication(firstNumber, secondNumber);
             } else if (currentOperator === "/") {
-                result = division(firstNumber, secondNumber);
+                result = division(firstNumber, secondNumber); 
             }
-            display.textContent = result;
+
+            if (result === null) {
+                display.textContent = ("Can't divide by zero")
+            } else {
+                display.textContent = result;
+            }
         })
 
         let decimalButton = document.querySelector(".decimal");
@@ -163,6 +171,21 @@
             } else {
                 display.textContent += decimalButton.textContent
             }
+        })
+
+        let deleteButton = document.getElementById("backspace");
+        deleteButton.addEventListener("click", function() {
+            display.textContent = display.textContent.slice(0, -1);
+            if (display.textContent.length === 0) {
+                display.textContent = "0"
+                startFresh = true
+            }
+        })
+
+        let percentButton = document.getElementById("percent");
+        percentButton.addEventListener("click", function() {
+            let currentValue = parseFloat(display.textContent);
+            display.textContent = currentValue / 100
         })
     </script>
 </body>
