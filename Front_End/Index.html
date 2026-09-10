@@ -8,10 +8,12 @@
             font-family: 'JetBrains Mono',  monospace;
             background-color: #16171a;
             color: #edebe6;
-            display: flex;
+            display: flex; 
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            flex-direction: column;
+            gap: 20px;
         }
         #calculator {
             background-color: #1f2023;
@@ -64,9 +66,37 @@
             background-color: #2c2e33;
             color: #edebe6;
         }
+        #rating {
+            display: flex;
+            gap: 8px;
+        }
+        #rating button {
+            border: none;
+            background: none;
+            font-size: 28px;
+            color: #8b8f94;
+            cursor: pointer;
+        }
+        .kicker {
+            color: #8b8f94;
+            font-size: 13px;
+            margin: 0;
+        }
+        h2, h3 {
+            margin: 0;
+        }
+        #ratingSection h3 {
+            margin: 8px;
+        }
+        
     </style>
 </head>
 <body>
+    <div id = "header">
+        <h2>Chioma's Calculator</h2>
+        <p class = "kicker">python project, first build</p>
+    </div>
+
     <div id = "calculator">
         <div id = "display">0</div>
         <div id = "keys"> 
@@ -90,7 +120,22 @@
             <button class="decimal">.</button>
             <button id = "total">=</button>    
         </div>
+
+        <div>
+            <p class = "kicker">built from scratch while learning python</p>
+        </div>
     </div>
+
+    <div id = "ratingSection">
+        <h3>Rate this project</h3>
+        <div id = "rating">
+            <button>★</button>
+            <button>★</button>
+            <button>★</button>
+            <button>★</button>
+            <button>★</button>
+        </div>
+    </div> 
 
     <script>
         let display = document.getElementById("display");
@@ -186,6 +231,18 @@
         percentButton.addEventListener("click", function() {
             let currentValue = parseFloat(display.textContent);
             display.textContent = currentValue / 100
+        })
+
+        document.querySelectorAll("#rating button").forEach(function(button, index) {
+            button.addEventListener("click", function() {
+                document.querySelectorAll("#rating button").forEach(function(star, starIndex) {
+                    if (starIndex <= index) {
+                        star.style.color = "#e9a23b";
+                    } else {
+                        star.style.color = "#8b8f94";
+                    }
+                })
+            })
         })
     </script>
 </body>
